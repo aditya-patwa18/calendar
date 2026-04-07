@@ -1,0 +1,150 @@
+:root {
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-handwriting: 'Caveat', cursive;
+  --bg-color: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #cbd5e1;
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --ring-color: #cbd5e1;
+  --paper-texture-opacity: 0.4;
+  --wall-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --cat-work: #3b82f6;
+  --cat-personal: #10b981;
+  --cat-urgent: #ef4444;
+  --cat-leisure: #8b5cf6;
+}
+
+body.dark-mode {
+  --bg-color: #0f172a;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  --wall-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --ring-color: #475569;
+  --paper-texture-opacity: 0.1;
+}
+
+.wall-calendar-wrapper {
+  transition: background-color 0.8s ease;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.wall-calendar-wrapper.winter { --season-accent: #e0f2fe; }
+.wall-calendar-wrapper.spring { --season-accent: #dcfce7; }
+.wall-calendar-wrapper.summer { --season-accent: #fef08a; }
+.wall-calendar-wrapper.autumn { --season-accent: #ffedd5; }
+
+body.dark-mode .wall-calendar-wrapper.winter { --season-accent: #0c4a6e; }
+body.dark-mode .wall-calendar-wrapper.spring { --season-accent: #14532d; }
+body.dark-mode .wall-calendar-wrapper.summer { --season-accent: #713f12; }
+body.dark-mode .wall-calendar-wrapper.autumn { --season-accent: #7c2d12; }
+
+.video-backgrounds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+.bg-vid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.bg-vid.active {
+  opacity: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color); 
+  opacity: 0.65; 
+  backdrop-filter: blur(8px); 
+  transition: background 0.8s ease, opacity 0.8s ease;
+}
+
+body.dark-mode .video-overlay {
+  opacity: 0.85;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn.primary {
+  background: var(--text-main);
+  color: var(--bg-color);
+}
+
+.btn.primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.btn.secondary:hover {
+  background: var(--border-color);
+}
