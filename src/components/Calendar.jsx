@@ -10,8 +10,8 @@ import {
   getVideoSeason
 } from '../utils/dateHelpers';
 import EventModal from './EventModal';
+import WeatherOverlay from './WeatherOverlay';
 import '../styles/calendar.css';
-
 const Calendar = () => {
   const calendar = useCalendar();
   const eventData = useEvents();
@@ -82,6 +82,8 @@ const Calendar = () => {
         <img src="/sep-dec.gif" className={`bg-vid ${activeVideo === 'sep-dec' ? 'active' : ''}`} />
         <div className="video-overlay"></div>
       </div>
+
+      <WeatherOverlay season={activeVideo} />
 
       <div className="calendar-header-actions">
         <button className="today-btn" onClick={goToToday}>Today</button>
